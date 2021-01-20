@@ -1,9 +1,9 @@
 targets = backend
 
 .PHONY: build
-build: ${targets}
+build: $(targets)
 
-${targets}: ${targets}.go
+$(targets): $(targets).go
 	CGO_ENABLED=0 go build -o $@ $@.go
 
 .PHONY: vet
@@ -18,4 +18,4 @@ test: vet
 
 .PHONY: clean
 clean:
-	rm -f -- ${targets}
+	rm -f -- $(targets)
